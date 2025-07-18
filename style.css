@@ -1,0 +1,90 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: radial-gradient(circle at top, #000000, #1a1a1a);
+  color: #00ffcc;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 2rem;
+  background: #111;
+  border-bottom: 2px solid #00ffff;
+}
+
+h1.neon {
+  font-size: 3rem;
+  color: #fff;
+  text-shadow:
+    0 0 5px #00ffff,
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 40px #00ffff;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
+  50% { text-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff; }
+}
+
+.author {
+  font-size: 1rem;
+  color: #ccc;
+  margin-top: 0.5rem;
+}
+
+.input-section {
+  padding: 2rem;
+  text-align: center;
+}
+
+.input-section input {
+  padding: 1rem;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+  background: #222;
+  color: #0ff;
+  font-size: 1rem;
+}
+
+.input-section button {
+  margin-left: 1rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  background: #0ff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.input-section button:hover {
+  background: #00cccc;
+}
+
+.prediction {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  color: #ff69b4;
+}
+
+footer {
+  margin-top: auto;
+  background: #111;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}

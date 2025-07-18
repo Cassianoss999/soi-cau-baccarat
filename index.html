@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tool Soi Cầu Baccarat</title>
+</head>
+<body>
+  <h1>Nhập chuỗi cầu (ví dụ: PBBBP):</h1>
+  <input id="input" type="text" placeholder="Nhập cầu..." />
+  <button onclick="duDoan()">Dự đoán</button>
+  <p id="ketqua"></p>
+
+  <script>
+    function duDoan() {
+      const input = document.getElementById('input').value.toUpperCase();
+      const countP = (input.match(/P/g) || []).length;
+      const countB = (input.match(/B/g) || []).length;
+      const ketqua = countP > countB ? 'Có thể về B (Banker)' : 'Có thể về P (Player)';
+      document.getElementById('ketqua').innerText = `Dự đoán: ${ketqua}`;
+    }
+  </script>
+</body>
+</html>

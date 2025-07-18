@@ -2,49 +2,79 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Soi Cầu Baccarat - Ngô Văn Tiến</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soi Cầu Baccarat AI - Ngô Văn Tiến</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Orbitron', sans-serif;
-      background: radial-gradient(circle, #000000, #111111);
-      color: #00fff7;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #00ffe0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
       min-height: 100vh;
-      padding: 20px;
+      text-align: center;
     }
 
     h1 {
-      font-size: 2.5rem;
-      text-shadow: 0 0 20px #00fff7, 0 0 30px #00fff7;
-      margin-top: 40px;
+      font-size: 2em;
+      color: #ffd700;
+      text-shadow: 0 0 5px #ff0, 0 0 10px #f0f;
     }
 
-    h2 {
-      font-size: 1.2rem;
-      color: #ccc;
-      margin-bottom: 20px;
-    }
-
-    input {
-      padding: 15px;
-      font-size: 1.2rem;
-      border-radius: 10px;
+    input[type="text"] {
+      padding: 10px;
+      font-size: 18px;
+      width: 250px;
       border: none;
-      outline: none;
-      background: #111;
-      color: #00fff7;
-      width: 280px;
-      text-align: center;
-      box-shadow: 0 0 10px #00fff7;
+      border-radius: 5px;
+      margin-top: 15px;
     }
 
     button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #ff00ff;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff00ff;
+    }
+
+    button:hover {
+      background: #cc00cc;
+    }
+
+    #result {
       margin-top: 20px;
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      background:
+      font-size: 24px;
+      color: #00ffe0;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔮 SOI CẦU BACCARAT AI</h1>
+  <p>Nhập 5 tay gần nhất (P hoặc B). Ví dụ: <strong>PBPPB</strong></p>
+
+  <input type="text" id="input" maxlength="5" placeholder="Nhập 5 tay gần nhất..."/>
+  <button onclick="duDoan()">Dự đoán</button>
+
+  <div id="result"></div>
+
+  <footer>Made with 💰 by <strong>Ngô Văn Tiến</strong></footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

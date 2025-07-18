@@ -1,60 +1,37 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>🃏 Soi Cầu Baccarat Neon – Ngô Văn Tiến</title>
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      background: linear-gradient(135deg, #1a0026, #000000);
-      font-family: Arial, sans-serif; color: #fff;
-      text-align: center; padding: 20px;
-    }
-    h1 {
-      font-size: 2.5em;
-      color: #ff4081;
-      text-shadow: 0 0 10px #ff4081, 0 0 20px #ff80ab;
-      margin-bottom: 20px;
-    }
-    textarea {
-      width: 90%; max-width: 600px;
-      height: 80px; padding: 10px;
-      background: #1c001f; border: 2px solid #ff4081;
-      border-radius: 10px; color: #fff;
-      font-size: 16px;
-    }
-    button {
-      margin-top: 15px;
-      padding: 12px 25px;
-      font-size: 18px;
-      background: linear-gradient(45deg,#ff4081,#7c4dff);
-      border: none; border-radius: 8px;
-      color: #000; font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 0 12px #ff4081, 0 0 20px #7c4dff;
-      transition: transform .2s;
-    }
-    button:hover { transform: scale(1.05); }
-    .result {
-      margin-top: 20px;
-      font-size: 1.4em;
-      text-shadow: 0 0 8px #00e5ff;
-    }
-    .history {
-      margin-top: 10px;
-      font-size: 0.9em;
-      color: #ccc;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soi Cầu Baccarat – Ngô Văn Tiến</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <h1>Soi Cầu Baccarat Neon</h1>
-  <textarea id="inputCau" placeholder="Nhập ít nhất 5 tay, ví dụ: P B B P P"></textarea><br/>
-  <button onclick="duDoan()">🎯 Dự đoán 3 tay tiếp</button>
-  <div class="result" id="ketQua"></div>
-  <div class="history" id="lichSu"></div>
+  <header>
+    <h1 class="neon">Soi Cầu Baccarat</h1>
+    <p class="author">Thương hiệu: Ngô Văn Tiến</p>
+  </header>
 
-  <script>
-    function duDoan() {
-      const raw = document.getElementById("input
+  <main>
+    <section class="input-section">
+      <label for="history">Nhập 5 tay gần nhất (P/B):</label>
+      <input type="text" id="history" maxlength="50" placeholder="VD: PBBPB" />
+      <button onclick="predict()">Dự đoán</button>
+    </section>
+
+    <section id="result" class="prediction">
+      <!-- Kết quả dự đoán hiển thị ở đây -->
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Ngô Văn Tiến - All rights reserved.</p>
+  </footer>
+
+  <!-- Nhạc nền (tùy chọn thêm sau) -->
+  <!-- <audio autoplay loop>
+    <source src="assets/bg.mp3" type="audio/mpeg" />
+  </audio> -->
+</body>
+</html>

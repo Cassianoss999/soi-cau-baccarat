@@ -1,22 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Tool Soi Cầu Baccarat</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soi Cầu Baccarat AI Sexy Neon</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #0f0f1a;
+      color: #fff;
+      text-align: center;
+    }
+    h1 {
+      color: #ff00cc;
+      text-shadow: 0 0 10px #ff00cc;
+      margin-top: 30px;
+    }
+    textarea {
+      width: 80%;
+      max-width: 600px;
+      height: 80px;
+      padding: 10px;
+      font-size: 18px;
+      background: #1e1e2e;
+      border: 2px solid #ff00cc;
+      color: #fff;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      background: linear-gradient(to right, #ff00cc, #3333ff);
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff00cc;
+    }
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #ff00cc;
+    }
+    .result {
+      margin-top: 30px;
+      font-size: 24px;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc;
+    }
+  </style>
 </head>
 <body>
-  <h1>Nhập chuỗi cầu (ví dụ: PBBBP):</h1>
-  <input id="input" type="text" placeholder="Nhập cầu..." />
-  <button onclick="duDoan()">Dự đoán</button>
-  <p id="ketqua"></p>
+  <h1>🎴 Soi Cầu Baccarat Neon AI 🎴</h1>
+  <p>Nhập tối thiểu 5 tay đầu (P: Player, B: Banker, H: Hòa)</p>
+  <textarea id="input" placeholder="Ví dụ: P B P B H P B"></textarea><br>
+  <button onclick="predict()">Dự Đoán 3 Tay Tiếp</button>
+  <div class="result" id="output"></div>
 
   <script>
-    function duDoan() {
-      const input = document.getElementById('input').value.toUpperCase();
-      const countP = (input.match(/P/g) || []).length;
-      const countB = (input.match(/B/g) || []).length;
-      const ketqua = countP > countB ? 'Có thể về B (Banker)' : 'Có thể về P (Player)';
-      document.getElementById('ketqua').innerText = `Dự đoán: ${ketqua}`;
+    function predict() {
+      const rawInput = document.getElementById("input").value.trim().toUpperCase();
+      const data = rawInput.split(/\s+/).filter(e => ["P", "B", "H"].includes(e));
+      const output = document.getElementById("output");
+
+      if (data.length < 5) {
+        output.innerHTML = "⚠️ Vui lòng nhập ít nhất 5 tay!";
+        return;
+      }
+
+      let result = [];
+      let last = data[data.length - 1];
+      let secondLast = data[data.length - 2];
+      let pattern = data.slice(-6).join(" ");
+
+      // Cầu bệt
+      if (data.slice(-4).every(v => v === last)) {
+        result = [last, last, last];
+      }
+      // Cầu 1-1
+      else if (secondLast !== last && data.slice(-4).join("") === "BPBP" || data.slice(-4).join("") === "PBPB") {
+        result = [last === "B" ? "P" : "B", last, last === "B" ? "P" : "B"];
+      }
+      // Cầu 2-2
+      else if (data.slice(-4).join("") === "BBPP" || data.slice(-4).join("") === "PPBB") {
+        result = [last, last, last === "B" ? "P" : "B"];
+      }
+      // Nhận dạng lặp
+      else {
+        let recent = data.slice(-3).join("");
+        let index = data.join("").lastIndexOf(recent, data.length - 4);
+        if (index !== -1) {
+          let next = data.slice(index + 3, index + 6);
+          result = next.length === 3 ? next : [];
+        }
+      }
+
+      // Nếu không rõ, random trí tuệ nhân tạo giả định
+      while (result.length < 3) {
+        let rand = Math.random();
+        result.push(rand < 0.48 ? "B" : rand < 0.96 ? "P" : "H");
+      }
+
+      output.innerHTML = `🔮 Dự đoán: <b>${result.join(" - ")}</b>`;
     }
   </script>
 </body>

@@ -1,111 +1,60 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Soi Cầu Baccarat AI Sexy Neon</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>🃏 Soi Cầu Baccarat Neon – Ngô Văn Tiến</title>
   <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: #0f0f1a;
-      color: #fff;
-      text-align: center;
+      background: linear-gradient(135deg, #1a0026, #000000);
+      font-family: Arial, sans-serif; color: #fff;
+      text-align: center; padding: 20px;
     }
     h1 {
-      color: #ff00cc;
-      text-shadow: 0 0 10px #ff00cc;
-      margin-top: 30px;
+      font-size: 2.5em;
+      color: #ff4081;
+      text-shadow: 0 0 10px #ff4081, 0 0 20px #ff80ab;
+      margin-bottom: 20px;
     }
     textarea {
-      width: 80%;
-      max-width: 600px;
-      height: 80px;
-      padding: 10px;
-      font-size: 18px;
-      background: #1e1e2e;
-      border: 2px solid #ff00cc;
-      color: #fff;
-      border-radius: 10px;
-      margin-top: 20px;
+      width: 90%; max-width: 600px;
+      height: 80px; padding: 10px;
+      background: #1c001f; border: 2px solid #ff4081;
+      border-radius: 10px; color: #fff;
+      font-size: 16px;
     }
     button {
-      margin-top: 20px;
-      padding: 12px 30px;
-      font-size: 20px;
-      font-weight: bold;
-      background: linear-gradient(to right, #ff00cc, #3333ff);
-      border: none;
-      border-radius: 10px;
-      color: white;
+      margin-top: 15px;
+      padding: 12px 25px;
+      font-size: 18px;
+      background: linear-gradient(45deg,#ff4081,#7c4dff);
+      border: none; border-radius: 8px;
+      color: #000; font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 0 15px #ff00cc;
+      box-shadow: 0 0 12px #ff4081, 0 0 20px #7c4dff;
+      transition: transform .2s;
     }
-    button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #ff00cc;
-    }
+    button:hover { transform: scale(1.05); }
     .result {
-      margin-top: 30px;
-      font-size: 24px;
-      color: #00ffcc;
-      text-shadow: 0 0 10px #00ffcc;
+      margin-top: 20px;
+      font-size: 1.4em;
+      text-shadow: 0 0 8px #00e5ff;
+    }
+    .history {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
-  <h1>🎴 Soi Cầu Baccarat Neon AI 🎴</h1>
-  <p>Nhập tối thiểu 5 tay đầu (P: Player, B: Banker, H: Hòa)</p>
-  <textarea id="input" placeholder="Ví dụ: P B P B H P B"></textarea><br>
-  <button onclick="predict()">Dự Đoán 3 Tay Tiếp</button>
-  <div class="result" id="output"></div>
+  <h1>Soi Cầu Baccarat Neon</h1>
+  <textarea id="inputCau" placeholder="Nhập ít nhất 5 tay, ví dụ: P B B P P"></textarea><br/>
+  <button onclick="duDoan()">🎯 Dự đoán 3 tay tiếp</button>
+  <div class="result" id="ketQua"></div>
+  <div class="history" id="lichSu"></div>
 
   <script>
-    function predict() {
-      const rawInput = document.getElementById("input").value.trim().toUpperCase();
-      const data = rawInput.split(/\s+/).filter(e => ["P", "B", "H"].includes(e));
-      const output = document.getElementById("output");
-
-      if (data.length < 5) {
-        output.innerHTML = "⚠️ Vui lòng nhập ít nhất 5 tay!";
-        return;
-      }
-
-      let result = [];
-      let last = data[data.length - 1];
-      let secondLast = data[data.length - 2];
-      let pattern = data.slice(-6).join(" ");
-
-      // Cầu bệt
-      if (data.slice(-4).every(v => v === last)) {
-        result = [last, last, last];
-      }
-      // Cầu 1-1
-      else if (secondLast !== last && data.slice(-4).join("") === "BPBP" || data.slice(-4).join("") === "PBPB") {
-        result = [last === "B" ? "P" : "B", last, last === "B" ? "P" : "B"];
-      }
-      // Cầu 2-2
-      else if (data.slice(-4).join("") === "BBPP" || data.slice(-4).join("") === "PPBB") {
-        result = [last, last, last === "B" ? "P" : "B"];
-      }
-      // Nhận dạng lặp
-      else {
-        let recent = data.slice(-3).join("");
-        let index = data.join("").lastIndexOf(recent, data.length - 4);
-        if (index !== -1) {
-          let next = data.slice(index + 3, index + 6);
-          result = next.length === 3 ? next : [];
-        }
-      }
-
-      // Nếu không rõ, random trí tuệ nhân tạo giả định
-      while (result.length < 3) {
-        let rand = Math.random();
-        result.push(rand < 0.48 ? "B" : rand < 0.96 ? "P" : "H");
-      }
-
-      output.innerHTML = `🔮 Dự đoán: <b>${result.join(" - ")}</b>`;
-    }
-  </script>
-</body>
-</html>
+    function duDoan() {
+      const raw = document.getElementById("input
